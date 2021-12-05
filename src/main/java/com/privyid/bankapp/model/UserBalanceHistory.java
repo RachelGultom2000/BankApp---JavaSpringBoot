@@ -136,6 +136,5 @@ public class UserBalanceHistory {
 		this.userbalance = userbalance;
 	}
 
-	
 
 }

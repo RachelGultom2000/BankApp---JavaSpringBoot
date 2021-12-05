@@ -24,20 +24,20 @@ public class BankBalanceHistoryController {
 	private BankBalanceHistoryRepository bankbalancehistoryRepository;
 	
 	
-	@Autowired
-	private BankBalanceRepository bankbalanceRepository;
-	
-	@GetMapping("/bank/{bankbalanceId}/balancehistories")
-	public Page<BankBalanceHistory> getAllBankBalanceHistoryByBankBalanceId(@PathVariable (value = "bankbalanceId") Long bankbalanceId, Pageable pageable){
-		return bankbalancehistoryRepository.findByBankBalanceId(bankbalanceId, pageable);
-	}
-	
-	@PostMapping("/bank/{bankbalanceId}/balancehistories")
-	  public BankBalanceHistory createbankbalancehistory(@PathVariable (value = "bankbalanceId") Long bankbalanceId,
-              @Valid @RequestBody BankBalanceHistory bankbalancehistory) {
-		return bankbalanceRepository.findById(bankbalanceId).map(bankbalance -> {
-			bankbalancehistory.setBankbalance(bankbalance);
-			return bankbalancehistoryRepository.save(bankbalancehistory);
-		}).orElseThrow(() -> new ResourceNotFoundException("Bank Balance Id " + bankbalanceId + " not found"));
-	}
+//	@Autowired
+//	private BankBalanceRepository bankbalanceRepository;
+//	
+//	@GetMapping("/bank/{bankbalanceId}/balancehistories")
+//	public Page<BankBalanceHistory> getAllBankBalanceHistoryByBankBalanceId(@PathVariable (value = "bankbalanceId") Long bankbalanceId, Pageable pageable){
+//		return bankbalancehistoryRepository.findByBankBalanceId(bankbalanceId, pageable);
+//	}
+//	
+//	@PostMapping("/bank/{bankbalanceId}/balancehistories")
+//	  public BankBalanceHistory createbankbalancehistory(@PathVariable (value = "bankbalanceId") Long bankbalanceId,
+//              @Valid @RequestBody BankBalanceHistory bankbalancehistory) {
+//		return bankbalanceRepository.findById(bankbalanceId).map(bankbalance -> {
+//			bankbalancehistory.setBankbalance(bankbalance);
+//			return bankbalancehistoryRepository.save(bankbalancehistory);
+//		}).orElseThrow(() -> new ResourceNotFoundException("Bank Balance Id " + bankbalanceId + " not found"));
+//	}
 }
