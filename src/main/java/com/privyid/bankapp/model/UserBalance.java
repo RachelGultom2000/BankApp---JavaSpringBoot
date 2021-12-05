@@ -39,6 +39,7 @@ public class UserBalance {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+	
 
 	public Long getId() {
 		return id;
